@@ -10,7 +10,7 @@ export const menuContent = {
   fullMenuLabel: 'VER MENÚ COMPLETO',
   // TODO: enlace al menú completo (PDF, carta en línea o catálogo de WhatsApp).
   fullMenuUrl: '#menu',
-  // TODO: confirmar el contenido de las pestañas POLLOS y PARRILLAS (el diseño solo muestra COMBOS).
+  // Se muestra solo si una pestaña no tiene productos.
   emptyMessage: 'Muy pronto más opciones aquí. Mientras tanto, consúltanos por WhatsApp.',
 }
 
@@ -50,6 +50,66 @@ export const menuItems = {
       price: 59.9,
     },
   ],
-  pollos: [],
-  parrillas: [],
+
+  // EJEMPLOS: cambia nombres, contenido y precios por los reales.
+  // Las fotos son temporales (reusan las de arriba). Cuando tengas las tuyas,
+  // súbelas a src/assets/, impórtalas arriba y cámbialas aquí.
+  pollos: [
+    {
+      id: 'pollo-entero',
+      badge: 'FAMILIAR',
+      name: '1 POLLO ENTERO',
+      image: comboFamiliarImg,
+      imageAlt: 'Pollo a la brasa entero con papas fritas',
+      includes: ['1 Pollo a la brasa entero', 'Papas fritas', 'Ensalada', 'Cremas de la casa'],
+      price: 49.9,
+    },
+    {
+      id: 'medio-pollo',
+      badge: 'PARA COMPARTIR',
+      name: '1/2 POLLO',
+      image: comboPara2Img,
+      imageAlt: 'Medio pollo a la brasa con papas fritas',
+      includes: ['1/2 Pollo a la brasa', 'Papas fritas', 'Ensalada', 'Cremas de la casa'],
+      price: 29.9,
+    },
+    {
+      id: 'cuarto-pollo',
+      badge: 'PERSONAL',
+      name: '1/4 POLLO',
+      image: comboFamiliarImg,
+      imageAlt: 'Un cuarto de pollo a la brasa con papas fritas',
+      includes: ['1/4 Pollo a la brasa', 'Papas fritas', 'Ensalada', 'Cremas de la casa'],
+      price: 17.9,
+    },
+  ],
+  parrillas: [
+    {
+      id: 'anticuchos',
+      badge: 'CLÁSICO',
+      name: 'ANTICUCHOS',
+      image: parrillaMixtaImg,
+      imageAlt: 'Parrilla con anticuchos, chorizo y papas doradas',
+      includes: ['3 Palitos de anticucho', 'Papas doradas', 'Choclo con queso', 'Ají de la casa'],
+      price: 29.9,
+    },
+    {
+      id: 'parrilla-personal',
+      badge: 'PERSONAL',
+      name: 'PARRILLA PERSONAL',
+      image: parrillaMixtaImg,
+      imageAlt: 'Parrilla personal con carnes y papas doradas',
+      includes: ['1/4 Pollo a la parrilla', 'Bife + Chorizo', 'Papas doradas', 'Ensalada'],
+      price: 44.9,
+    },
+    {
+      id: 'parrilla-familiar',
+      badge: 'PARA 4',
+      name: 'PARRILLA FAMILIAR',
+      image: parrillaMixtaImg,
+      imageAlt: 'Parrilla familiar con pollo, bife, anticuchos y chorizo',
+      includes: ['Pollo, bife y anticuchos', 'Chorizo y mollejitas', 'Papas doradas grandes', 'Ensalada grande'],
+      price: 139.9,
+    },
+  ],
 }

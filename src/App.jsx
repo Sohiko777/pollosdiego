@@ -1,6 +1,6 @@
 import NavBar from './components/NavBar'
 import FloatingActions from './components/FloatingActions'
-import ReservationModal from './components/ReservationModal'
+import Footer from './components/Footer'
 import Hero from './sections/Hero'
 import Menu from './sections/Menu'
 import Reviews from './sections/Reviews'
@@ -16,8 +16,8 @@ export default function App() {
         <Reviews />
         <Visit />
       </main>
+      <Footer />
       <FloatingActions />
-      <ReservationModal />
     </>
   )
 }

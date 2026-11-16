@@ -16,6 +16,7 @@ export const reviewsContent = {
 }
 
 // TODO: reemplazar por reseñas reales (nombre, texto y foto) con permiso de cada persona.
+// El carrusel se adapta solo: puedes agregar o quitar reseñas de esta lista.
 export const reviews = [
   {
     id: 'luis',
@@ -40,5 +41,45 @@ export const reviews = [
     avatar: avatar3,
     stars: 5,
     text: 'Excelente atención y rapidez en los pedidos. Siempre cumplen.',
+  },
+  {
+    id: 'rosa',
+    name: 'Rosa Elena C.',
+    location: 'Ate, Lima',
+    avatar: avatar2,
+    stars: 5,
+    text: 'Las papas crujientes y el pollo bien doradito. Se nota que cuidan la brasa.',
+  },
+  {
+    id: 'jorge',
+    name: 'Jorge Luis P.',
+    location: 'Santa Anita, Lima',
+    avatar: avatar1,
+    stars: 5,
+    text: 'Pedí el combo familiar para el cumpleaños de mi hijo y alcanzó para todos. Llegó calientito.',
+  },
+  {
+    id: 'daniela',
+    name: 'Daniela V.',
+    location: 'La Molina, Lima',
+    avatar: avatar3,
+    stars: 5,
+    text: 'Los anticuchos son una delicia y las cremas de la casa están buenazas.',
+  },
+  {
+    id: 'miguel',
+    name: 'Miguel Ángel S.',
+    location: 'Ate, Lima',
+    avatar: avatar1,
+    stars: 4,
+    text: 'Buena porción y buen precio. El local es cómodo para ir en familia.',
+  },
+  {
+    id: 'patricia',
+    name: 'Patricia H.',
+    location: 'Ate, Lima',
+    avatar: avatar2,
+    stars: 5,
+    text: 'Pedimos por WhatsApp y respondieron al toque. Todo llegó tal cual lo pedimos.',
   },
 ]

@@ -41,3 +41,36 @@ section[id] {
     scroll-behavior: auto;
   }
 }
+
+/* Carrusel vertical de reseñas */
+@keyframes reviews-scroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.reviews-track {
+  animation: reviews-scroll var(--reviews-duration, 56s) linear infinite;
+  will-change: transform;
+}
+
+.reviews-window:hover .reviews-track,
+.reviews-window:focus-within .reviews-track {
+  animation-play-state: paused;
+}
+
+/* Sin animación para quien la tiene desactivada en su sistema: queda como lista con scroll */
+@media (prefers-reduced-motion: reduce) {
+  .reviews-track {
+    animation: none;
+  }
+  .reviews-track > [aria-hidden='true'] {
+    display: none;
+  }
+  .reviews-viewport {
+    overflow-y: auto;
+  }
+}

@@ -1,5 +1,5 @@
 import { Flame, Bird, Heart } from 'lucide-react'
-import heroImg from '../assets/pollo2.png'
+import heroImg from '../assets/pollo2.JPEG'
 
 export const hero = {
   badge: 'EL MEJOR SABOR DE ATE',

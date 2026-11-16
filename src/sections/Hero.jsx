@@ -9,14 +9,18 @@ import { buildWhatsAppLink } from '../utils/whatsapp'
 
 export default function Hero() {
   return (
-    <section id="inicio" aria-labelledby="hero-title" className="relative isolate overflow-hidden bg-ink pt-28 sm:pt-32 lg:pt-36">
-      {/* Diagonal roja decorativa */}
+    <section
+      id="inicio"
+      aria-labelledby="hero-title"
+      className="relative isolate overflow-hidden bg-ink pt-28 sm:pt-32 lg:flex lg:min-h-svh lg:items-center lg:pt-24"
+    >
+      {/* Diagonal roja: más grande en escritorio para que el plato quede encima, como en el diseño */}
       <div
         aria-hidden="true"
-        className="absolute bottom-0 right-0 -z-10 h-[55%] w-[85%] bg-brand [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:h-[68%] lg:w-[48%]"
+        className="absolute bottom-0 right-0 -z-10 h-[55%] w-[85%] bg-brand [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:h-[82%] lg:w-[58%]"
       />
 
-      <div className="mx-auto grid max-w-[90rem] grid-cols-1 items-center gap-6 px-4 pb-14 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:gap-4 lg:px-12 lg:pb-16">
+      <div className="mx-auto grid w-full max-w-[90rem] grid-cols-1 items-center gap-6 px-4 pb-14 sm:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-0 lg:px-12 lg:pb-10">
         {/* Texto */}
         <div className="relative z-10 min-w-0">
           <p className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-4 py-2 text-xs font-semibold tracking-wide text-white">
@@ -26,7 +30,7 @@ export default function Hero() {
 
           <h1
             id="hero-title"
-            className="mt-6 text-[2.9rem] font-black uppercase leading-[0.95] tracking-tight sm:text-7xl lg:text-[4.6rem] xl:text-[5.6rem]"
+            className="mt-6 text-[2.9rem] font-black uppercase leading-[0.95] tracking-tight sm:text-7xl lg:mt-5 lg:text-[length:clamp(3rem,min(9svh,5.2vw),5.6rem)]"
           >
             {hero.title.map((line) => (
               <span key={line.text} className={`block ${line.accent ? 'text-brand' : 'text-white'}`}>
@@ -35,9 +39,11 @@ export default function Hero() {
             ))}
           </h1>
 
-          <p className="mt-6 max-w-xs text-lg leading-snug text-white/85 sm:max-w-sm sm:text-xl">{hero.description}</p>
+          <p className="mt-6 max-w-xs text-lg leading-snug text-white/85 sm:max-w-sm sm:text-xl lg:mt-4">
+            {hero.description}
+          </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-6">
             <Button
               as="a"
               href={buildWhatsAppLink(hero.whatsappMessage)}
@@ -57,7 +63,7 @@ export default function Hero() {
             </Button>
           </div>
 
-          <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-4">
+          <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-4 lg:mt-7">
             {hero.features.map((f) => (
               <FeatureItem key={f.lines.join(' ')} {...f} />
             ))}
@@ -66,19 +72,24 @@ export default function Hero() {
 
         {/* Imagen */}
         <div className="relative z-0 min-w-0 sm:mx-0">
+          {/* Resplandor cálido detrás del pollo */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-[6%] -z-10 rounded-full bg-[radial-gradient(closest-side,rgba(255,110,20,0.28),transparent)]"
+          />
           <img
             src={hero.image}
             alt={hero.imageAlt}
             width="1200"
             height="1200"
             fetchPriority="high"
-            className="mx-auto w-full max-w-2xl object-contain [mask-image:radial-gradient(closest-side,black_72%,transparent)] lg:max-w-none lg:scale-110"
+            className="mx-auto w-full max-w-2xl object-contain drop-shadow-[0_25px_35px_rgba(0,0,0,0.55)] [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)] lg:max-h-[86svh] lg:max-w-none lg:scale-110"
           />
           <CircularBadge
             top={hero.seal.top}
             bottom={hero.seal.bottom}
             label={`Sello: ${hero.seal.top} ${hero.seal.center} ${hero.seal.bottom}`}
-            className="absolute right-4 top-0 size-24 bg-ink/40 sm:size-32 lg:right-2 lg:top-[-1rem] lg:size-36"
+            className="absolute right-4 top-0 size-24 bg-ink/40 sm:size-32 lg:right-2 lg:top-2 lg:size-36"
           >
             <span className="text-xl font-black text-white sm:text-3xl">{hero.seal.center}</span>
           </CircularBadge>

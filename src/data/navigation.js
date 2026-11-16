@@ -3,8 +3,12 @@ export const navLinks = [
   { id: 'inicio', label: 'INICIO' },
   { id: 'menu', label: 'MENÚ' },
   { id: 'combos', label: 'COMBOS' },
-  { id: 'nosotros', label: 'NOSOTROS' },
+  { id: 'resenas', label: 'RESEÑAS' },
   { id: 'contacto', label: 'CONTACTO' },
 ]
 
 export const reserveLabel = 'RESERVA TU MESA'
+
+// Mensaje que se abre en WhatsApp al reservar. El cliente completa los espacios en blanco.
+export const reserveMessage =
+  "Hola DIEGO'S, quiero reservar una mesa.\nNombre: \nPersonas: \nFecha: \nHora: "

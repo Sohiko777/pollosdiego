@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import Button from '../components/Button'
 import GoogleIcon from '../components/GoogleIcon'
@@ -8,10 +7,8 @@ import { reviews, reviewsContent } from '../data/reviews'
 import { site } from '../data/site'
 
 export default function Reviews() {
-  const [active, setActive] = useState(0)
-
   return (
-    <section id="nosotros" aria-labelledby="reviews-title" className="relative overflow-hidden bg-ink py-24 sm:py-20">
+    <section id="resenas" aria-labelledby="reviews-title" className="relative overflow-hidden bg-ink py-24 sm:py-20">
       <div className="mx-auto grid max-w-[90rem] gap-10 px-4 sm:px-8 lg:grid-cols-[1.3fr_1.3fr_0.5fr] lg:items-center lg:gap-10 lg:px-16">
         {/* Texto + rating */}
         <div>
@@ -51,31 +48,24 @@ export default function Reviews() {
           </Button>
         </div>
 
-        {/* Reseñas: en móvil se ve una a la vez (con puntos); en escritorio las tres */}
-        <div>
-          <div className="space-y-3">
-            {reviews.map((review, i) => (
-              <ReviewCard
-                key={review.id}
-                review={review}
-                active={i === active}
-                className={i === active ? 'block' : 'hidden lg:block'}
-              />
-            ))}
-          </div>
-          <div className="mt-5 flex justify-center gap-2" role="group" aria-label="Elegir reseña">
-            {reviews.map((review, i) => (
-              <button
-                key={review.id}
-                type="button"
-                onClick={() => setActive(i)}
-                aria-label={`Ver reseña de ${review.name}`}
-                aria-current={i === active ? 'true' : undefined}
-                className="grid size-6 place-items-center"
-              >
-                <span className={`size-2 rounded-full transition-colors ${i === active ? 'bg-brand' : 'bg-white/40'}`} />
-              </button>
-            ))}
+        {/* Carrusel vertical infinito: sube solo, se pausa al pasar el mouse o enfocar */}
+        <div
+          role="region"
+          aria-label="Reseñas de clientes"
+          tabIndex={0}
+          className="reviews-window rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4 focus-visible:ring-offset-ink"
+        >
+          <div className="reviews-viewport relative h-[27rem] overflow-hidden lg:h-[34rem] [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
+            <div className="reviews-track" style={{ '--reviews-duration': `${reviews.length * 7}s` }}>
+              {/* Se dibuja dos veces para que el bucle no tenga saltos; la copia se oculta a lectores de pantalla */}
+              {[0, 1].map((copy) => (
+                <div key={copy} aria-hidden={copy === 1 ? 'true' : undefined} className="space-y-3 pb-3">
+                  {reviews.map((review) => (
+                    <ReviewCard key={`${copy}-${review.id}`} review={review} />
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

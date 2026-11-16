@@ -2,20 +2,16 @@ import { useState } from 'react'
 import { CalendarDays, Menu, X } from 'lucide-react'
 import Logo from './Logo'
 import Button from './Button'
-import { navLinks, reserveLabel } from '../data/navigation'
+import { navLinks, reserveLabel, reserveMessage } from '../data/navigation'
 import useActiveSection from '../hooks/useActiveSection'
-import { openReservation } from '../hooks/useReservationModal'
+import { buildWhatsAppLink } from '../utils/whatsapp'
 
 const ids = navLinks.map((l) => l.id)
+const reserveHref = buildWhatsAppLink(reserveMessage)
 
 export default function NavBar() {
   const [open, setOpen] = useState(false)
   const active = useActiveSection(ids)
-
-  const handleReserve = () => {
-    setOpen(false)
-    openReservation()
-  }
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 bg-ink/90 backdrop-blur-md">
@@ -43,7 +39,13 @@ export default function NavBar() {
           </ul>
         </nav>
 
-        <Button type="button" onClick={handleReserve} className="px-6 py-3.5 text-sm max-lg:hidden">
+        <Button
+          as="a"
+          href={reserveHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-6 py-3.5 text-sm max-lg:hidden"
+        >
           <CalendarDays aria-hidden="true" className="size-5" />
           {reserveLabel}
         </Button>
@@ -82,7 +84,14 @@ export default function NavBar() {
             </li>
           ))}
         </ul>
-        <Button type="button" onClick={handleReserve} className="mt-4 w-full px-6 py-3.5 text-sm">
+        <Button
+          as="a"
+          href={reserveHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setOpen(false)}
+          className="mt-4 w-full px-6 py-3.5 text-sm"
+        >
           <CalendarDays aria-hidden="true" className="size-5" />
           {reserveLabel}
         </Button>

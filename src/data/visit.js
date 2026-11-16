@@ -7,6 +7,7 @@ export const visit = {
   mapImage: mapImg,
   mapImageAlt: 'Mapa de la ubicación de DIEGO\'S en la Av. Nicolás Ayllón, Ate',
   mapLinkLabel: 'Abrir ubicación de DIEGO\'S en Google Maps',
+  directionsLabel: 'CÓMO LLEGAR',
   hoursEyebrow: 'HORARIOS DE ATENCIÓN',
   hours: [
     { icon: CalendarDays, lines: ['Lunes a Domingo'] },

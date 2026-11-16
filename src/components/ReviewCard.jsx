@@ -14,7 +14,6 @@ export default function ReviewCard({ review, active = false, className = '' }) {
           alt={`Foto de ${review.name}`}
           width="48"
           height="48"
-          loading="lazy"
           className="size-11 shrink-0 rounded-full object-cover"
         />
         <div className="min-w-0 flex-1">
